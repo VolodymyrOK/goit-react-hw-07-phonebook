@@ -5,6 +5,8 @@ import data from '../../data/data.json';
 
 const initState = {
   list: data,
+  isLoading: false,
+  error: null,
 };
 
 const contactSlice = createSlice({
