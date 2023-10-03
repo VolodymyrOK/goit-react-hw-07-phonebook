@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const Title = styled.h2`
   font-size: 28px;
   color: ${({ theme: { colors } }) => colors.colorH2};
+  & > sup {
+    font-size: 16px;
+    color: blue;
+    margin-left: 8px;
+    font-weight: 700;
+  }
 `;
 export const HeadContacts = styled.div`
   display: flex;

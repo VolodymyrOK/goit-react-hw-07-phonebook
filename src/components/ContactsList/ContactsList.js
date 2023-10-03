@@ -14,17 +14,19 @@ import { getFilter } from 'redux/filter/selectors';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
-  const visibleContacts = useSelector(getContacts);
+  const { list } = useSelector(getContacts);
   const filter = useSelector(getFilter);
 
-  const contacts = visibleContacts.filter(item =>
+  const contacts = list.filter(item =>
     item.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
     <>
       <HeadContacts>
-        <Title>Contacts</Title>
+        <Title>
+          Contacts<sup>25</sup>
+        </Title>
         <Filter />
       </HeadContacts>
       <ContactList>

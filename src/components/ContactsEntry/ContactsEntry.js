@@ -9,9 +9,9 @@ import {
   ErrorMsg,
   Title,
 } from './ContactsEntry.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contacts/contactsSlice';
+import { useSelector } from 'react-redux';
 import { getContacts } from 'redux/contacts/selectors';
+import { addContactsToBase } from 'redux/operations/operations';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -22,22 +22,21 @@ const SignupSchema = Yup.object().shape({
     .min(5, 'Too Short!')
     .max(15, 'Too Long!')
     .matches(
-      /\(\d{3}\)\s\d{3}-\d{2}-\d{2}/g,
+      /\d{3}-\d{3}-\d{4}/g,
       'Must contain only numbers or be in the correct format'
     )
     .required('Required'),
 });
 
 export const ContactsEntry = () => {
-  const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const { list } = useSelector(getContacts);
 
   const onSubmitForm = (values, reset) => {
-    const isDuplicated = contacts.find(
+    const isDuplicated = list.find(
       item => item.name.toLowerCase() === values.name.toLowerCase()
     );
     if (isDuplicated) return alert(values.name + ' is already in contacts');
-    dispatch(addContact(values));
+    addContactsToBase(values);
     reset.resetForm();
   };
 
