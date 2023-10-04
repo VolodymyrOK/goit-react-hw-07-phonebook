@@ -8,13 +8,13 @@ import {
   MessageAboutEmpty,
   Title,
 } from './ContactsList.styled';
-import { delContact } from 'redux/contacts/contactsSlice';
-import { getContacts } from 'redux/contacts/selectors';
 import { getFilter } from 'redux/filter/selectors';
+import { getContacts } from 'redux/contacts/selectors';
+import { delContacts } from 'redux/operations/operations';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
-  const { list } = useSelector(getContacts);
+  const list = useSelector(getContacts);
   const filter = useSelector(getFilter);
 
   const contacts = list.filter(item =>
@@ -25,7 +25,7 @@ export const ContactsList = () => {
     <>
       <HeadContacts>
         <Title>
-          Contacts<sup>25</sup>
+          Contacts<sup>{list.length}</sup>
         </Title>
         <Filter />
       </HeadContacts>
@@ -42,7 +42,7 @@ export const ContactsList = () => {
                   type="button"
                   onClick={() => {
                     if (window.confirm('Are you sure?'))
-                      dispatch(delContact(id));
+                      dispatch(delContacts(id));
                   }}
                 >
                   Delete
