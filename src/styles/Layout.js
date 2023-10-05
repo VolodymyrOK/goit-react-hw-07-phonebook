@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Layout = styled.div`
+  position: relative;
   width: 450px;
   margin: 32px auto;
   padding: 15px;
