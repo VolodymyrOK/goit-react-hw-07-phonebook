@@ -69,7 +69,7 @@ export const ContactsEntry = () => {
             type="tel"
             name="number"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            placeholder="Phone number in the format (123) 456-78-90"
+            placeholder="Phone number in the format 123-456-7890"
             required
           />
           <ErrorMsg name="number" component="span"></ErrorMsg>
