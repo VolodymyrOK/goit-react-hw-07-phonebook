@@ -8,14 +8,14 @@ import {
   MessageAboutEmpty,
   Title,
 } from './ContactsList.styled';
-import { getFilter } from 'redux/filter/selectors';
-import { getContacts } from 'redux/contacts/selectors';
+import { selectFilter } from 'redux/filter/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import { delContacts } from 'redux/operations/operations';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
-  const list = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const list = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
 
   const contacts = list.filter(item =>
     item.name.toLowerCase().includes(filter.toLowerCase())
