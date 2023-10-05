@@ -11,7 +11,6 @@ import {
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
 import { Loader } from './Loader/Loader';
-import { ErrorMessage } from './App.styled';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -26,7 +25,11 @@ export const App = () => {
   return (
     <Layout>
       {isLoading && !error && <Loader />}
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {error && (
+        <p style={{ textAlign: 'center', color: 'red', fontWeight: '500' }}>
+          {error}
+        </p>
+      )}
       <ContactsEntry />
       {list.length > 0 && <ContactsList />}
       <GlobalStyle />
