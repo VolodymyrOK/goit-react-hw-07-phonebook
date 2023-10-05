@@ -7,9 +7,9 @@ import {
   selectContacts,
   selectError,
   selectIsLoading,
-} from 'redux/contacts/selectors';
+} from 'redux/contactsSlice';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations/operations';
+import { fetchContacts } from 'redux/operations';
 import { Loader } from './Loader/Loader';
 import { ErrorMessage } from './App.styled';
 

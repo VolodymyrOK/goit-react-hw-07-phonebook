@@ -10,8 +10,8 @@ import {
   Title,
 } from './ContactsEntry.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/contacts/selectors';
-import { addContacts } from 'redux/operations/operations';
+import { addContacts } from 'redux/operations';
+import { selectContacts } from 'redux/contactsSlice';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()

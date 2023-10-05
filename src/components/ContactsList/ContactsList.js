@@ -8,9 +8,9 @@ import {
   MessageAboutEmpty,
   Title,
 } from './ContactsList.styled';
-import { selectFilter } from 'redux/filter/selectors';
-import { selectContacts } from 'redux/contacts/selectors';
-import { delContacts } from 'redux/operations/operations';
+import { delContacts } from 'redux/operations';
+import { selectContacts } from 'redux/contactsSlice';
+import { selectFilter } from 'redux/filterSlice';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
